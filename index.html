@@ -1,200 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shower Presentation Engine</title>
+    <title>PHP-документация — год спустя</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
-    <style>
-        .shower {
-            --slide-ratio: calc(16 / 9);
-        }
-    </style>
+    <link rel="stylesheet" href="vendor/highlight.js/default.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="shower list">
 
     <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
+        <h1>PHP-документация — год спустя</h1>
+        <p>@<strong>lex111</strong></p>
     </header>
 
     <section class="slide" id="cover">
-        <h2>Shower Presentation Engine</h2>
-        <p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
-        <figure>
-            <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-            <figcaption class="copyright right white">
-                <a href="http://fiftyfootshadows.net/">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #cover h2 {
-                margin: 30px 0 0;
-                color: white;
-                text-align: center;
-                font-size: 70px;
-            }
-
-            #cover p {
-                margin: 10px 0 0;
-                text-align: center;
-                color: white;
-                font-style: italic;
-                font-size: 20px;
-            }
-
-            #cover p a {
-                color: white;
-            }
-        </style>
+        <h2>
+            Боль, отчаяние и безысходность, или «как я переводил документацию PHP
+            <span class="elephant-emoji">🐘</span>»
+        </h2>
+        
+        <!-- <h3>А также в программе — опечатки, трудности перевода и их преодоление</h3> -->
+        
+        <div class="bottom-panel">
+            <div class="author-info">
+                <img class="author-info-avatar" src="pictures/avatar.png" alt="lex111">
+                <strong>lex111</strong>
+            </div>
+            
+            <span class="date">13.10.18, Ростов-на-Дону</span>
+            
+            <img class="rnd-php-logo" src="pictures/rnd-php.png" alt="rnd-php-logo">
+        </div>
+        
+        <img class="cover cover-main" src="pictures/main-page.png" alt="Главная страница руководства PHP">
     </section>
 
     <section class="slide">
-        <h2>Shower key features</h2>
+        <h2>Кто я?</h2>
         <ol>
-            <li>Built on HTML, CSS and JavaScript</li>
-            <li>Works in all modern browsers</li>
-            <li>Themes are separated from engine</li>
-            <li>Fully keyboard accessible</li>
-            <li>Printable to PDF</li>
+            <li>Веб-разработчик (PHP и JavaScript)</li>
+            <li>Активный контрибьютер в опенсорс (<a href="https://github.com/gitpoint/git-point">GitPoint</a>, <a href="https://github.com/translation-gang">Translation Gang</a>, <a href="https://github.com/LaravelRUS">Laravel Russian Community</a> и др.)</li>
+            <li><a href="https://leanpub.com/u/lex111">Переводчик книг</a> и всякого разного (в основном, по фронтенду)</li>
+            <li>Автор и редактор <a href="https://medium.com/devschacht">devSchacht</a> и русской документации Vue.js</li>
+            <li>Действующий мейнтейнер русской документации по PHP с надеждой в будущее</li>
         </ol>
-        <p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
     </section>
 
     <section class="slide">
-        <h2>Plain text on your slides</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+        <h2>Программа доклада</h2>
+        <ol>
+            <li>Зачем вообще всё это нужно?</li>
+            <li>Краткая история русского перевода</li>
+            <li>Преимущества заняться поддержкой документацией</li>
+            <li>Минусы существующей документации</li>
+            <li>Как всё устроено изнутри</li>
+            <li>С чего начать?</li>
+        </ol>
     </section>
-
+    
     <section class="slide">
-        <h2>Two columns if you like</h2>
+        <h2>Вопрос на засыпку: <br> кто кликал на одну из этих ссылок? 🧐</h2>
+        <img class="full-width" src="pictures/edit.png" alt="Участие в документации">
+    </section>
+    
+    <section class="slide">
+        <h2>Зачем вообще нужен перевод: 🤔</h2>
+        <ul>
+            <li class="next">Ну, как минимум, читать на родном языке всегда приятнее...</li>
+            <li class="next">Повышает популярность PHP в русскоязычном сообществе</li>
+            <li class="next">Идеально для начинающих, но по факту используются многими
+                разработчиками</li>
+        </ul>
+    </section>
+    
+    <section class="slide">
+        <h2>О наболевшем 👀</h2>
+        
+        <ul>
+            <li><strike>В отличии</strike> <span class="right-way">⟶</span> В отличие</li>
+            <li><strike>я имею ввиду</strike> <span class="right-way">⟶</span> я имею в виду</li>
+            <li><strike>PHP библиотеки</strike> <span class="right-way">⟶</span> PHP<strong>-</strong>библиотеки</li>
+            <li><strike>по-умолчанию</strike> <span class="right-way">⟶</span> по<strong>_</strong>умолчанию</li>
+            <li><strike>Смотри</strike> <span class="right-way">⟶</span> Смотрите</li>
+        </ul>
+        
+    </section>
+    
+    
+    <section class="slide">
+        <h2>Пишем проще! 👀</h2>
+        
         <div class="columns two">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+            <div>
+                <p>Iterable является псевдотипом введенным в PHP 7.1</p>
+            </div>
+            
+            <div>
+                <p>Iterable - псевдотип, введенный в PHP 7.1</p>
+            </div>            
+        </div>
+    </section>
+    
+    <section class="slide">
+        <h2>О, нет, опечатки, они повсюду! 😱</h2>
+        
+        <!-- class="columns four" -->
+
+        <ul>
+            <li class="next">функцуий</li>
+            <li class="next">интекграцией</li>
+            <li class="next">качесте</li>
+            <li class="next">прользователем</li>
+            <!-- <li class="next"></li>
+            <li class="next"></li>
+            <li class="next"></li>
+            <li class="next"></li>
+            <li class="next"></li>
+            <li class="next"></li> -->
+        </ul>
+
+    </section>
+    
+    <section class="slide">
+        <h2>Трудности перевода</h2>
+    
+        <ul>
+            <li>Browser: <strike>броузер</strike> <span class="right-way">⟶</span> браузер</li>
+            <li>Web: <strike>вэб</strike> <span class="right-way">⟶</span> веб</li> (аналогичные примеры: к<strong>е</strong>ш, х<strong>е</strong>ш, сл<strong>е</strong>ш)
+            <!-- <li>Magic: <strike>броузер</strike> <span class="right-way">⟶</span> браузер</li> -->
+            <li>Multibyte string: <strike>мультибайтные строки</strike> <span class="right-way">⟶</span> мультибайтовые строки</li>
+            <li>Throw exception: <strike>бросить исключение</strike> <span class="right-way">⟶</span> выбросить исключение</li>
+            <!-- <li>Browser: <strike>броузер</strike> <span class="right-way">⟶</span> браузер</li>
+            <li>Browser: <strike>броузер</strike> <span class="right-way">⟶</span> браузер</li>
+            <li>Browser: <strike>броузер</strike> <span class="right-way">⟶</span> браузер</li> -->
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Краткая история русского перевода 🕵️</h2>
+        
+        <ul class="long-list">
+            <li>Начинается с конца 2001 года 🚀</li>
+            <li>На момент 2005 года в определенной степени переведены основные части 😌</li>
+            <li>C 2008 в команда переводчиков распалась — документация остаётся в
+                заброшенном
+                состоянии 😮</li>
+            <li>С конца 2009 года из-за сильной неактуальности русский перевод исчезает с
+                официального сайта 😢... скорее всего из-за мажорной версии 5.3, вышедшей в конце июня 2009 года</li>
+            <li>Летом 2011 года появляется веб-приложение для редактирования документации,
+                сделанное, кстати, основным переводчиком французской документации —
+                Янником Торресом 👏</li>
+            <li>В октября 2010 начинается возрождение документации 😲...</li>
+            <li>...и в ноябре 2011 года русский перевод вновь, наконец, становится
+                доступным на
+                сайте 🎉</li>
+        </ul>
+        
+        Продолжение далее ➡️
+    </section>
+    
+    <section class="slide">
+        <h2>Краткая история русского перевода: продолжение</h2>
+        
+        <figure>
+            <blockquote>
+                <p>
+                    На данный момент перевод на русский находится в некотором анабиозе. <br>
+                    Все активные переводчики потеряли интерес или не могут найти на него время
+                    (увы, включая меня). А все новые люди, проявлявшие интерес, тоже как-то
+                    быстро пропадают =)
+                </p>
+            </blockquote>
+            <figcaption>Александр Москалёв о состоянии команды переводчиков в 2016 году</figcaption>
+        </figure>
+        
+        <ul class="long-list">
+            <li>В 2016 году появляется новый мейнтейнер — Андрей Громов, он же единственный активный</li>
+            <li>На момент 2018 года в команде переводчиков всего два активных мейнтейнера,
+                но нужно больше 🤕</li>
+        </ul>
+    </section>
+    
+    <section class="slide">
+        <h2>Сравнение 2011 🆚 2018 в цифрах</h2>
+        
+        <div class="columns two">
+            <div>
+                <ul>
+                    <li>Количество переведенных файлов — <strong>~700</strong></li>
+                    <li>Количество устаревших переведенных файлов — <strong>~200</strong></li>
+                    <li>Количество непереведенных файлов — <strong>~8900</strong></li>
+                </ul>
+            </div>
+            
+            <div>
+                <ul>
+                    <li>Количество переведенных файлов — <strong>~7500</strong>~</li>
+                    <li>Количество устаревших переведенных файлов — <strong>0</strong> 😊</li>
+                    <!-- что значит, что все переведенные файлы актуальны -->
+                    <li>Количество непереведенных файлов — <strong>~5228</strong></li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section class="slide">
-        <h2>All kind of lists</h2>
+        <h2>Сравнение 2011 🆚 2018 в графиках</h2>
+    
+        <div class="columns two">
+            <div>
+                <img src="pictures/2011-circle.png" alt="">
+            </div>
+    
+            <div>
+                <img src="pictures/2018-circle.png" alt="">
+            </div>
+        </div>
+    </section>
+    
+    <section class="slide">
+        <h2>2011 🆚 2018: статистика по всем языкам</h2>
+    
+        <div class="columns two">
+            <div>
+                <img src="pictures/2011-bar.png" alt="">
+            </div>
+    
+            <div>
+                <img src="pictures/2018-bar.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Что мне даст поддержка документации?</h2>
+        
         <ol>
-            <li>Simple lists are marked with bullets</li>
-            <li>Ordered lists begin with a number</li>
-            <li>You can even nest lists one inside another
-                <ul>
-                    <li>Or mix their types</li>
-                    <li>But do not go too far</li>
-                    <li>Otherwise audience will be bored</li>
-                </ul>
+            <li class="next">Языковая практика английского языка 👌</li>
+            <li class="next">Прокачка знаний по PHP 💪. Спорно, однако точно что-то наверняка узнаешь новое.</li>
+            <li class="next">Улучшение понимания своего родного языка. Так или иначе, ошибаться станешь
+            меньше, а может быть и вовсе станешь граммар-наци 🤓!</li>
+            <li class="next">Это опенсорс, поскольку ты добровольно
+            занимаешься общественно-полезным делом 😇</li>
+            <li class="next">«Ачивка» в резюме, а почему бы и нет?! 😉</li>
+        </ol>
+    </section>
+    
+    <section class="slide">
+        <h2>Хм, звучит заманчиво, а что ещё?</h2>
+        
+        <ol>
+            <li class="next">«Почтовый» адрес с доменом @php.net
+            <!-- на самом деле это не настоящий почтовый
+                ящик, а пересылка сообщений на определенную почту, например, на Gmail, т.е.
+                отправлять сообщения не получится, но зато их можно получать через него. -->
+            <li class="next">Возможность редактировать/удалять комментарии пользователей на сайте <br>
+                <img class="media" src="pictures/edit-contributed-notes.png" alt="">
             </li>
-            <li>Look, seven rows exactly!</li>
+            <li class="next">SVN-аккаунт, который помимо непосредственно редактирования документации даёт право голоса за RFC!</li>
+            <li class="next">Профиль на сайтах PHP: people.php.net, ...</li>
         </ol>
+        
+        <!-- <p class="next">Однако всё это при условии значительного вклада, как в общем и при обычным
+        опенсорс-проекте...</p> -->
     </section>
 
     <section class="slide">
-        <h2>Serious citations</h2>
-        <figure>
-            <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-            </blockquote>
-            <figcaption>Marcus Tullius Cicero</figcaption>
-        </figure>
-    </section>
-
-    <section class="slide">
-        <h2>Code samples</h2>
-        <pre>
-            <code>&lt;!DOCTYPE html&gt;</code>
-            <code class="mark">&lt;html lang="en"&gt;</code>
-            <code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-            <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-            <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-            <code><mark>&lt;/head&gt;</mark></code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Even tables</h2>
-        <table>
-        <tr>
-            <th scope="col">Locavore</th>
-            <th>Umami</th>
-            <th>Helvetica</th>
-            <th>Vegan</th>
-        </tr>
-        <tr>
-            <th scope="row">Fingerstache</th>
-            <td>Kale</td>
-            <td>Chips</td>
-            <td>Keytar</td>
-        </tr>
-        <tr>
-            <th scope="row">Sriracha</th>
-            <td>Gluten-free</td>
-            <td>Ennui</td>
-            <td>Keffiyeh</td>
-        </tr>
-        <tr>
-            <th scope="row">Thundercats</th>
-            <td>Jean</td>
-            <td>Shorts</td>
-            <td>Biodiesel</td>
-        </tr>
-        <tr>
-            <th scope="row">Terry</th>
-            <td>Richardson</td>
-            <td>Swag</td>
-            <td>Blog</td>
-        </tr>
-        </table>
-        <p>It’s good to have information organized.</p>
-    </section>
-
-    <section class="slide" id="picture">
-        <h2>Pictures</h2>
-        <figure>
-            <img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-            <figcaption class="copyright right white">
-                <a href="http://fiftyfootshadows.net/">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #picture h2 {
-                color: white;
-            }
-        </style>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shrink">You can even shout this way</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Inner navigation</h2>
+        <h2>Окей, я хочу заниматься русским переводом, с чего мне начать? ✍️</h2>
+        
+        Есть два варианта:
+        
         <ol>
-            <li>Lets you reveal list items one by one</li>
-            <li class="next">To keep some key points</li>
-            <li class="next">In secret from audience</li>
-            <li class="next">But it will work only once</li>
-            <li class="next">Nobody wants to see the same joke twice</li>
+            <li class="next">Переводить новые страницы, например, не хватает перевода по MongoDB</li>
+            <li class="next">Заниматься вычиткой существующих переводов: здесь уже всё хорошо, однако есть ещё тысячи страниц для вычитки</li>
         </ol>
     </section>
+    
+    <section class="slide">
+        <h2>Коротко, как устроена документация</h2>
+    
+        <ul>
+            <li class="next">Хранится в SVN-репозитории*</li>
+            <li class="next">Пишется в формате DocBlock (<a href="https://ru.wikipedia.org/wiki/SGML">SGML</a> -> XML)</li>
+            <li class="next">Собирается раз день около 8 часов утра (МСК), но есть специальное зеркало — <a href="http://docs.php.net/">http://docs.php.net/</a>, которое обновляется четыре раза в день с интервалом в шесть часов: 3:15, 9:15, 15:15, 21:15 (МСК)</li>
+            <li class="next">Генерируется с помощью инструмента <a href="http://doc.php.net/phd/docs/">Phd (Php Docbook Renderer)</a></li>
+            <li class="next">Редактируется через онлайн-редактор — <a href="http://edit.php.net">edit.php.net</a></li>
+            <!-- но владельцы SVN-аккаунта могут работать напрямую с репозиторием -->
+            <!-- <li class="next"></li> -->
+        </ul>
+        
+        <p class="note next"><a href="">* Черновик руководство по миграции на Git</a></p>
+    </section>
+    
+    <section class="slide">
+        <h2>Минусы документации</h2>
+    
+        <ol>
+            <li class="next">Отсутствие версионности, как например, в Python
+                <img class="media" src="pictures/python-docs-example.png" alt="">
+            </li>
+            <li class="next">Долгая обратная связь</li>
+            <li class="next">Стиль в некоторых примерах ужасен</li>
+        </ol>
+    </section>
+    
+    <section class="slide">
+        <h2>Минусы документации: плохое форматирование примеров</h2>
+    
+        <img class="media" src="pictures/bad-example.png" alt="">
+        <a href="http://php.net/manual/ru/function.strftime.php">strftime()</a>
+    </section>
+    
+    <section class="slide">
+        <h2>Плохое форматирование примеров</h2>
+    
+        <img class="media" src="pictures/bad-example-2.png" alt="">
+        <a href="http://php.net/manual/ru/control-structures.goto.php">goto</a>
+    </section>
+    
+    <section class="slide" id="broken-build-slide">
+        <h2>Бывает документация ломается 😧</h2>
+    
+        <img class="media" src="pictures/pain.png" alt="">
+        
+        <pre class="broken-build-detailed-slide next">
+The ru build of the PHP Manual is broken, so it does not validate or build. Please fix it! ;)
+Attached is the full log
+Love, The docs.php.net server
+…
+Eyh man. No worries. Happ shittens. Try again after fixing the errors above.
+=============> Something happenend when snapshotting ru
+Failed completely
+=============> Please have a look!
+        </pre>
+        
+        <!-- <a href="http://news.php.net/php.doc.ru/start/6639">php.doc.ru</a> -->
+    </section> 
+    
+    <section class="slide">
+        <h2>А бывает и подобное 😟</h2>
+        <h3>Пример из французского перевода</h3>
+    
+        <img class="media" src="pictures/pain-1.png" alt="">
+    </section>
 
-    <section class="slide" id="see-more">
-        <h2 class="shout">
-            <img src="pictures/logo.svg" alt="Shower logo">
-            <a href="https://github.com/shower/shower">See more on GitHub</a>
-        </h2>
-        <style>
-            #see-more h2 {
-                font-size: 100px
-            }
+    <section class="slide" id="example-doc">
+        <h2>Пример файла документации️</h2>
+    
+        <pre>
+            <code class="xml">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!-- <mark>$Revision: <mark class="important">344912</mark></mark> $ --&gt;
+&lt;!-- <mark>EN-Revision: 344864</mark> Maintainer: lex Status: ready --&gt;
+&lt;!-- <mark>Reviewed: no</mark> --&gt;
 
-            #see-more img {
-                width: 0.72em;
-                height: 0.72em;
-            }
-        </style>
+&lt;refentry xml:id=&quot;function.is-countable&quot; xmlns=&quot;http://docbook.org/ns/docbook&quot;&gt;
+ &lt;refnamediv&gt;
+  &lt;refname&gt;is_countable&lt;/refname&gt;
+  &lt;refpurpose&gt;
+   Проверить, что содержимое переменной является счетным значением
+  &lt;/refpurpose&gt;
+ &lt;/refnamediv&gt;
+
+ &lt;refsect1 role=&quot;description&quot;&gt;
+  &amp;reftitle.description;
+  &lt;methodsynopsis&gt;
+   &lt;type&gt;bool&lt;/type&gt;&lt;methodname&gt;is_countable&lt;/methodname&gt;
+   &lt;methodparam&gt;&lt;type&gt;mixed&lt;/type&gt;&lt;parameter&gt;var&lt;/parameter&gt;&lt;/methodparam&gt;
+  &lt;/methodsynopsis&gt;
+  &lt;para&gt;
+   Проверить, что содержимое переменной массив (&lt;type&gt;array&lt;/type&gt;) или
+   объект, реализующий &lt;classname&gt;Countable&lt;/classname&gt;
+  &lt;/para&gt;
+ &lt;/refsect1&gt;
+
+ &lt;refsect1 role=&quot;parameters&quot;&gt;
+  &amp;reftitle.parameters;
+  &lt;para&gt;
+   &lt;variablelist&gt;
+    &lt;varlistentry&gt;
+     &lt;term&gt;&lt;parameter&gt;var&lt;/parameter&gt;&lt;/term&gt;
+     &lt;listitem&gt;
+      &lt;para&gt;
+       Значение для проверки
+      &lt;/para&gt;
+     &lt;/listitem&gt;
+    &lt;/varlistentry&gt;
+   &lt;/variablelist&gt;
+  &lt;/para&gt;
+ &lt;/refsect1&gt;
+
+ &lt;refsect1 role=&quot;returnvalues&quot;&gt;
+  &amp;reftitle.returnvalues;
+  &lt;para&gt;
+   Возвращает &amp;true;, если &lt;parameter&gt;var&lt;/parameter&gt; счетная или &amp;false; в противном случае.
+  &lt;/para&gt;
+ &lt;/refsect1&gt;
+
+ &lt;refsect1 role=&quot;changelog&quot;&gt;
+  &amp;reftitle.changelog;
+  &lt;informaltable&gt;
+   &lt;tgroup cols=&quot;2&quot;&gt;
+    &lt;thead&gt;
+     &lt;row&gt;
+      &lt;entry&gt;&amp;Version;&lt;/entry&gt;
+      &lt;entry&gt;&amp;Description;&lt;/entry&gt;
+     &lt;/row&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+     &lt;row&gt;
+      &lt;entry&gt;7.3.0&lt;/entry&gt;
+      &lt;entry&gt;
+       Добавлена функция &lt;function&gt;is_countable&lt;/function&gt;.
+      &lt;/entry&gt;
+     &lt;/row&gt;
+    &lt;/tbody&gt;
+   &lt;/tgroup&gt;
+  &lt;/informaltable&gt;
+ &lt;/refsect1&gt;
+
+ &lt;refsect1 role=&quot;examples&quot;&gt;
+  &amp;reftitle.examples;
+  &lt;para&gt;
+   &lt;example&gt;
+    &lt;title&gt;Примеры использования &lt;function&gt;is_countable&lt;/function&gt;&lt;/title&gt;
+    &lt;programlisting role=&quot;php&quot;&gt;
+&lt;![CDATA[
+&lt;?php
+var_dump(is_countable([1, 2, 3])); // bool(true)
+var_dump(is_countable(new ArrayIterator(['foo', 'bar', 'baz']))); // bool(true)
+var_dump(is_countable(new ArrayIterator())); // bool(true)
+var_dump(is_countable(new stdClass())); // bool(false)
+
+]]&gt;
+    &lt;/programlisting&gt;
+   &lt;/example&gt;   
+  &lt;/para&gt;   
+ &lt;/refsect1&gt;
+
+ &lt;refsect1 role=&quot;seealso&quot;&gt;
+  &amp;reftitle.seealso;
+  &lt;para&gt;
+   &lt;simplelist&gt;
+    &lt;member&gt;&lt;function&gt;is_array&lt;/function&gt;&lt;/member&gt;
+    &lt;member&gt;&lt;function&gt;is_object&lt;/function&gt;&lt;/member&gt;
+    &lt;member&gt;&lt;function&gt;is_iterable&lt;/function&gt;&lt;/member&gt;
+    &lt;member&gt;&lt;function&gt;is_bool&lt;/function&gt;&lt;/member&gt;
+   &lt;/simplelist&gt;
+  &lt;/para&gt;
+ &lt;/refsect1&gt;
+
+&lt;/refentry&gt;
+
+&lt;!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:1
+sgml-indent-data:t
+indent-tabs-mode:nil
+sgml-parent-document:nil
+sgml-default-dtd-file:&quot;~/.phpdoc/manual.ced&quot;
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim600: syn=xml fen fdm=syntax fdl=2 si
+vim: et tw=78 syn=sgml
+vi: ts=1 sw=1
+--&gt;
+            </code>
+        </pre>
+        
+        <p><a href="http://php.net/manual/ru/function.is-countable.php">is_countable()</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>Поблагодарим активных участников!</h2>
+                
+        <table class="contributors-list">
+            <tr>
+                <th scope="col">Имя</th>
+                <th>Кол-во файлов</th>
+            </tr>
+            <tr>
+                <td>Андрей Громов (rjhdby)</th>
+                <td>2986</td>
+            </tr>
+            <tr>
+                <td>Дмитрий Винярчук (tmn)</td>
+                <td>1043</td>
+            </tr>
+            <tr>
+                <td>Алексей Шеин (shein)</td>
+                <td>924</td>
+            </tr>
+            <tr>
+                <td>Максим Чабан (mch)</td>
+                <td>818</td>
+            </tr>
+            <tr>
+                <td>Андрей Безруков (aur)</td>
+                <td>624</td>
+            </tr>
+            <tr>
+                <td>Михаил Баранов (northcat)</td>
+                <td>212</td>
+            </tr>
+            <tr>
+                <td>Борис Флейтлих (bfl)</td>
+                <td>138</td>
+            </tr>
+            <tr>
+                <td>Юрий Бабиков (alien)</td>
+                <td>102</td>
+            </tr>
+            <tr>
+                <td>Александр Москалёв (irker)</td>
+                <td>88</td>
+            </tr>
+        </table>
+        
+        <p>И многие другие...</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shrink">Но среди них можешь быть <br> и ты!</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Быстрый старт</h2>
+
+        <p>Проще показать непосредственно на примере...</p>
+    </section>
+
+    <section class="slide">
+        <h2>Ой! Что тут у нас?! Опечатка!</h2>
+        <h3>Немедленно исправляем...</h3>
+    
+        <img src="pictures/typo.png" class="media" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/edit-0.png" class="cover" alt="">
+    </section>
+    
+    <section class="slide">
+        <img src="pictures/edit-1.png" class="cover" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/edit-2.png" class="cover" alt="">
+    </section>
+    
+    <section class="slide">
+        <h2>Онлайн-редактор документации</h2>
+        
+        <ul>
+            <li>Сделан на ExtJS в 2011 году, но работает хорошо до сих пор 💯</li>
+            <li value="+">Интуитвно-понятный, простой и удобный ✔️</li>
+            <li value="−">Как минус — не работает проверка правописания ❌</li>
+        </ul>
+        
+        <img src="pictures/edit-2.png" class="cover cover-blurred" alt="">
+    </section>    
+
+    <section class="slide">
+        <img src="pictures/edit-3.png" class="cover" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/edit-4.png" class="cover" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/edit-5.png" class="cover" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/edit-6.png" class="cover" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/edit-7.png" class="cover" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Полезные ресурсы</h2>
+    
+        <ul>
+            <li><a href="http://doc.php.net/">PHP: Documentation Tools</a></li>
+            <li><a href="http://news.php.net/php.doc.ru">Список рассылки русской документации</a></li>
+            <li><a href="https://habr.com/post/125348/">Команде переводчиков документации PHP требуется помощь (Алексей Шеин)</a></li>
+            <li><a href="https://habr.com/post/125341/">Новый инструмент перевода документации PHP: edit.php.net (Александр Москалёв)</a></li>
+            <li><a href="https://habr.com/post/353490/">И снова о переводе документации PHP (Андрей Громов)</a></li>
+            <!-- <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li> -->
+        </ul>
+    </section>
+    
+    <section class="slide">
+        <h2>Давайте улучшим наши позиции!</h2>
+        <p>Круче русской локализации только японцы, испанцы и французы.</p>
+        <img class="media" src="pictures/common-state.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Спасибо за внимание!</h2>
+        
+        <p>
+            Алексей Пыльцын<br>
+            Email — <a href="mailto:lex@php.net">lex@php.net</a><br>
+            GitHub —<a href="https://github.com/lex111">lex111</a>
+        </p>
     </section>
 
     <footer class="badge">
@@ -204,7 +629,7 @@
     <div class="progress"></div>
 
     <script src="shower/shower.min.js"></script>
-    <!-- Copyright © 2018 Yours Truly, Famous Inc. -->
-
+    <script src="vendor/highlight.js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
