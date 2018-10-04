@@ -17,13 +17,41 @@
 
 .link-more {
   position: absolute;
-  bottom: 20px;
-  right: 50px;
+  bottom: 5%;
+  right: 9%;
+}
+
+ul.no-bullets > li::before {
+  display: none;
+  text-indent: 0;
+}
+
+.qr {
+  height: 380px;
+  position: absolute;
+  top: 23%;
+  right: 5%;
+}
+
+.contacts-list {
+  font-size: 29px;
+  margin-left: -5px;
+}
+
+.contacts-list li a {
+  background: none;
+}
+
+.contacts-list [class^="icon-"] {
+  width: 1.5em;
+  margin-right: 0.1em;
+  display: inline-block;
+  text-align: center;
 }
 
 #example-doc pre {
   overflow-y: auto;
-  font-size: 10px;
+  font-size: 12px;
   height: 350px;
   margin-bottom: 0;
 }
@@ -57,14 +85,14 @@
   font: 20px/1.6 'PT Sans', sans-serif;
 }
 
-#cover h2 {
+#intro h2 {
   margin: 30px 0 0;
   color: #000;
   text-align: center;
   font-size: 66px;
 }
 
-#cover p {
+#intro p {
   margin: 10px 0 0;
   text-align: center;
   color: white;
@@ -72,15 +100,19 @@
   font-size: 20px;
 }
 
-#cover p a {
-    color: white;
+#intro a {
+  color: white;
+  display: flex;
+  color: inherit;
+  align-items: center;
+  background: none;
 }
 
 .elephant-emoji {
   vertical-align: text-top;
 }
 
-#cover .bottom-panel {
+#intro .bottom-panel {
   display: flex;
   position: absolute;
   left: 25px;
@@ -92,17 +124,17 @@
   color: #fff;
 }
 
-#cover .author-info {
+#intro .author-info {
   display: inline-flex;
   align-items: center;
   margin-left: 10px;
 }
 
-#cover .author-info strong {
+#intro .author-info strong {
   margin-left: 15px;
 }
 
-#cover .author-info-avatar {
+#intro .author-info-avatar {
   height: 60px;
   width: 60px;
   background: #fff;

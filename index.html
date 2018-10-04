@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
     <link rel="stylesheet" href="vendor/highlight.js/default.min.css">
+    <link rel="stylesheet" href="vendor/icomoon/style.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="shower list">
@@ -15,7 +16,7 @@
         <p>@<strong>lex111</strong></p>
     </header>
 
-    <section class="slide" id="cover">
+    <section class="slide" id="intro">
         <h2>
             Боль, отчаяние и безысходность, или «как я переводил документацию PHP
             <span class="elephant-emoji">🐘</span>»
@@ -25,26 +26,30 @@
         
         <div class="bottom-panel">
             <div class="author-info">
-                <img class="author-info-avatar" src="pictures/avatar.png" alt="lex111">
-                <strong>lex111</strong>
+                <a href="https://github.com/lex111">
+                    <img class="author-info-avatar" src="pictures/avatar.png" alt="lex111">
+                    <strong>lex111</strong>                   
+                </a>
             </div>
             
             <span class="date">13.10.18, Ростов-на-Дону</span>
             
-            <img class="rnd-php-logo" src="pictures/rnd-php.png" alt="rnd-php-logo">
+            <a href="https://vk.com/rnd_php">
+                <img class="rnd-php-logo" src="pictures/rnd-php.png" alt="rnd-php-logo">
+            </a>
         </div>
         
         <img class="cover cover-main" src="pictures/main-page.png" alt="Главная страница руководства PHP">
     </section>
 
     <section class="slide">
-        <h2>Кто я?</h2>
+        <h2>Немного обо мне</h2>
         <ol>
             <li>Веб-разработчик (PHP и JavaScript)</li>
             <li>Активный контрибьютер в опенсорс (<a href="https://github.com/gitpoint/git-point">GitPoint</a>, <a href="https://github.com/translation-gang">Translation Gang</a>, <a href="https://github.com/LaravelRUS">Laravel Russian Community</a> и др.)</li>
             <li><a href="https://leanpub.com/u/lex111">Переводчик книг</a> и всякого разного (в основном, по фронтенду)</li>
             <li>Автор и редактор <a href="https://medium.com/devschacht">devSchacht</a> и русской документации Vue.js</li>
-            <li>Действующий мейнтейнер русской документации по PHP с надеждой в будущее</li>
+            <li><mark>Действующий мейнтейнер русской документации по PHP с надеждой в будущее</mark></li>
         </ol>
     </section>
 
@@ -350,8 +355,7 @@ Failed completely
         <h2>Пример файла документации️</h2>
     
         <pre>
-            <code class="xml">
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+            <code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;!-- <mark>$Revision: 344912</mark> $ --&gt;
 &lt;!-- <mark>EN-Revision: 344864</mark> Maintainer: lex Status: ready --&gt;
 &lt;!-- <mark>Reviewed: no</mark> --&gt;
@@ -477,7 +481,7 @@ vi: ts=1 sw=1
             </code>
         </pre>
         
-        <p><a href="http://php.net/manual/ru/function.is-countable.php">is_countable() [>PHP 7.3]</a></p>
+        <p><a href="http://php.net/manual/ru/function.is-countable.php">is_countable(), с PHP 7.3</a></p>
     </section>
 
     <section class="slide">
@@ -486,7 +490,7 @@ vi: ts=1 sw=1
         <table class="contributors-list">
             <tr>
                 <th scope="col">Имя</th>
-                <th>Кол-во файлов</th>
+                <th>Кол-во переведённых файлов</th>
             </tr>
             <tr>
                 <td>Андрей Громов (rjhdby)</th>
@@ -567,7 +571,7 @@ vi: ts=1 sw=1
         
         <ul>
             <li>Сделан на ExtJS в 2011 году, но работает хорошо до сих пор 💯</li>
-            <li value="+">Интуитвно-понятный, простой и удобный ✔️</li>
+            <li value="+">Интуитивно-понятный, простой и удобный ✔️</li>
             <li value="−">Как минус — не работает проверка правописания ❌</li>
         </ul>
         
@@ -615,21 +619,44 @@ vi: ts=1 sw=1
         <p>Круче русской локализации только японцы, испанцы и французы.</p>
         <img class="media" src="pictures/common-state.png" alt="">
     </section>
-    
-    <!-- <section class="slide visited active" id="29">
-        <h2 class="shout grow">Growing Shout</h2>
-    </section> -->
 
     <section class="slide">
-        <h2>Спасибо за внимание! Вопросы❓</h2>
+        <h2>Спасибо за внимание! 🙏</h2>
         
-        <p>
-            Алексей Пыльцын<br>
-            Email — <a href="mailto:lex@php.net">lex@php.net</a><br>
-            GitHub — <a href="https://github.com/lex111">lex111</a>
-        </p>
+        <h3>Алексей Пыльцын</h3>
         
-        <span class="link-more">Ссылка на презентацию: <a href="http://lex111.ru/phpdoc-inside-slides/" target="_blank">lex111.ru/phpdoc-inside-slides/</a></span>
+        <ul class="contacts-list no-bullets">
+            <li>
+                <span class="icon-envelope"></span>
+                <a href="mailto:lex@php.net">lex@php.net</a>
+            </li>
+            <li>
+                <span class="icon-github"></span>
+                <a href="https://github.com/lex111"">lex111</a>
+            </li>
+            <li>
+                <span class="icon-twitter"></span>
+                <a href="https://twitter.com/lex111_">lex111_</a>
+            </li>
+            <li>
+                <span class="icon-telegram"></span>
+                <a href="https://web2.tlgrm.eu/#/im?p=@lexrulezzz">lexrulezzz</a>
+            </li>
+            <li>
+                <span class="icon-medium"></span>
+                <a href="https://medium.com/@lex111">lex111</a>
+            </li>
+        </ul>
+
+        <img src="pictures/qr.png" alt="" class="qr">
+
+        <span class="link-more">
+            <a href="http://lex111.ru/phpdoc-inside-slides/" target="_blank">Ссылка на презентацию</a>
+        </span>
+    </section>
+    
+    <section class="slide">
+        <h2 class="shout grow">Вопросы?</h2>
     </section>
 
     <footer class="badge">
