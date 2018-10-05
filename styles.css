@@ -1,5 +1,6 @@
 .shower {
   --slide-ratio: calc(16 / 9);
+  --ribbon-size: 36px;
   font: 25px/1.6 'PT Sans', sans-serif;
 }
 
@@ -78,7 +79,11 @@ ul.no-bullets > li::before {
 }
 
 .useful-resources {
-  font-size: 22px;
+  font-size: 21px;
+}
+
+span.note {
+  color: gray;
 }
 
 .long-list {
